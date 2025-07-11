@@ -1,0 +1,194 @@
+.league-card {
+  position: relative;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: var(--netflix-shadow-hover);
+    border-color: rgba(229, 9, 20, 0.3);
+    
+    .card-image {
+      .badge-image {
+        transform: scale(1.1);
+      }
+      
+      .card-overlay {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.8);
+      }
+    }
+    
+    .card-content {
+      .league-name {
+        color: var(--netflix-red);
+        text-shadow: 0 0 20px rgba(229, 9, 20, 0.5);
+      }
+    }
+  }
+
+  .card-image {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+    background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+
+    .badge-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .default-badge {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--netflix-gradient);
+      position: relative;
+
+      .sport-icon {
+        font-size: 3.5rem;
+        color: white;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+        z-index: 1;
+        position: relative;
+      }
+    }
+
+    .card-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(5px);
+
+      .overlay-content {
+        text-align: center;
+        color: white;
+
+        .sport-type {
+          font-size: 1.3rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1.5px;
+          text-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+        }
+      }
+    }
+  }
+
+  .card-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(180deg, rgba(26, 26, 26, 0.9) 0%, rgba(45, 45, 45, 0.95) 100%);
+
+    .league-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin: 0 0 10px 0;
+      line-height: 1.3;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      letter-spacing: -0.01em;
+    }
+
+    .league-alternate {
+      font-size: 0.9rem;
+      color: #b3b3b3;
+      margin: 0 0 16px 0;
+      font-style: italic;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      font-weight: 400;
+    }
+
+    .sport-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+
+      .sport-icon {
+        font-size: 1.3rem;
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+      }
+
+      .sport-name {
+        font-size: 0.85rem;
+        color: #b3b3b3;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+      }
+    }
+  }
+}
+
+
+
+// Responsive design
+@media (max-width: 768px) {
+  .league-card {
+    height: 320px;
+
+    .card-image {
+      height: 200px;
+    }
+
+    .card-content {
+      padding: 16px;
+
+      .league-name {
+        font-size: 1.1rem;
+      }
+
+      .league-alternate {
+        font-size: 0.85rem;
+      }
+      
+      .sport-badge {
+        padding: 10px 12px;
+        
+        .sport-icon {
+          font-size: 1.1rem;
+        }
+        
+        .sport-name {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+} 

@@ -1,0 +1,56 @@
+<div class="leagues-container">
+  <header class="page-header">
+    <h1 class="page-title">Sports Leagues</h1>
+    <p class="page-subtitle">Discover and explore leagues from around the world</p>
+    <div *ngIf="isDataFromCache" class="cache-indicator">
+      <span class="cache-icon">💾</span>
+      <span class="cache-text">Data from cache (refreshes daily)</span>
+      <button (click)="forceRefresh()" class="refresh-btn" title="Force refresh data">
+        🔄
+      </button>
+    </div>
+  </header>
+
+  <app-search-filter
+    (searchChange)="onSearchChange($event)"
+    (sportFilterChange)="onSportFilterChange($event)"
+  ></app-search-filter>
+
+  <div class="content-section">
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-container">
+      <div class="loading-spinner"></div>
+      <p class="loading-text">Loading leagues...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !isLoading" class="error-container">
+      <div class="error-icon">⚠️</div>
+      <h3 class="error-title">Oops! Something went wrong</h3>
+      <p class="error-message">{{ error }}</p>
+      <button (click)="retryLoad()" class="retry-btn">
+        Try Again
+      </button>
+    </div>
+
+    <!-- Leagues Grid -->
+    <div *ngIf="!isLoading && !error" class="leagues-grid">
+      <div 
+        *ngFor="let league of filteredLeagues$ | async; trackBy: trackByLeagueId" 
+        class="league-item"
+      >
+        <app-league-card
+          [league]="league"
+          (leagueClick)="onLeagueClick($event)"
+        ></app-league-card>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!isLoading && !error && (filteredLeagues$ | async)?.length === 0" class="empty-state">
+      <div class="empty-icon">🏆</div>
+      <h3 class="empty-title">No leagues found</h3>
+      <p class="empty-message">Try adjusting your search or filters to find what you're looking for.</p>
+    </div>
+  </div>
+</div> 

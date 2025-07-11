@@ -1,0 +1,80 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+  color: #ffffff;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e50914;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b20710;
+}
+
+/* Focus styles */
+*:focus {
+  outline: 2px solid #e50914;
+  outline-offset: 2px;
+}
+
+/* Button reset */
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Input reset */
+input, select, textarea {
+  font-family: inherit;
+}
+
+/* Smooth transitions */
+* {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Netflix red color variables */
+:root {
+  --netflix-red: #e50914;
+  --netflix-red-dark: #b20710;
+  --netflix-red-light: #ff4757;
+  --netflix-black: #0a0a0a;
+  --netflix-dark-gray: #1a1a1a;
+  --netflix-gray: #2d2d2d;
+  --netflix-light-gray: #b3b3b3;
+  --netflix-white: #ffffff;
+  --netflix-gradient: linear-gradient(135deg, #e50914 0%, #b20710 100%);
+  --netflix-gradient-hover: linear-gradient(135deg, #ff4757 0%, #e50914 100%);
+  --netflix-shadow: 0 8px 32px rgba(229, 9, 20, 0.3);
+  --netflix-shadow-hover: 0 12px 40px rgba(229, 9, 20, 0.4);
+} 

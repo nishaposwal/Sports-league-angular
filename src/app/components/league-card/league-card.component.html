@@ -1,0 +1,32 @@
+<div class="league-card" (click)="onCardClick()">
+  <div class="card-image">
+    <img 
+      *ngIf="seasonBadge$ && (seasonBadge$ | async) as badge; else defaultImage" 
+      [src]="badge" 
+      [alt]="league.strLeague"
+      class="badge-image"
+      (error)="onImageError($event)"
+    />
+    <ng-template #defaultImage>
+      <div class="default-badge">
+        <span class="sport-icon">{{ getSportIcon(league.strSport) }}</span>
+      </div>
+    </ng-template>
+    <div class="card-overlay">
+      <div class="overlay-content">
+        <span class="sport-type">{{ league.strSport }}</span>
+      </div>
+    </div>
+  </div>
+  
+  <div class="card-content">
+    <h3 class="league-name">{{ league.strLeague }}</h3>
+    <p class="league-alternate" *ngIf="league.strLeagueAlternate">
+      {{ league.strLeagueAlternate }}
+    </p>
+    <div class="sport-badge">
+      <span class="sport-icon">{{ getSportIcon(league.strSport) }}</span>
+      <span class="sport-name">{{ league.strSport }}</span>
+    </div>
+  </div>
+</div> 
