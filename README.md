@@ -201,9 +201,11 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
-- **TheSportsDB**: For providing the sports data API
+
 - **Angular Team**: For the amazing framework
 - **Netflix**: Design inspiration for the UI/UX
+- **[TheSportsDB API](https://www.thesportsdb.com/)**: Provides comprehensive sports data and league information
+- **[Firebase Hosting](https://firebase.google.com/docs/hosting)**: For reliable and fast hosting
 
 ---
 
